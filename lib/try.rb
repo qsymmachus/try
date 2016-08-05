@@ -1,5 +1,3 @@
 require "try/version"
-
-module Try
-  # Your code goes here...
-end
+require "try/success"
+require "try/failure"

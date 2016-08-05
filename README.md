@@ -55,8 +55,8 @@ Once you have your result, it shares a common interface regardless of whether it
 # => returns the alternate value if it's a Failure
 
 @result.is_success?
-# returns true if it's a Success
-# returns false if it's a Failure
+# => returns true if it's a Success
+# => returns false if it's a Failure
 
 # More methods to come, like 'map'...
 ```

@@ -1,5 +1,11 @@
 require "try/version"
+require "try/success"
+require "try/failure"
 
-module Try
-  # Your code goes here...
+def try
+  begin
+    Success.new(yield)
+  rescue Exception => e
+    Failure.new(e)
+  end
 end

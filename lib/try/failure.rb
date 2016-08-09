@@ -14,4 +14,8 @@ class Failure
   def is_success?
     false
   end
+
+  def map
+    Failure.new(@error)
+  end
 end

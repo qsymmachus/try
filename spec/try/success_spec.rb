@@ -24,4 +24,13 @@ describe Success do
       expect(@success.is_success?).to be true
     end
   end
+
+  describe "map" do
+    it "returns a Success containing the result of mapping the function to the original wrapped value" do
+      @result = @success.map { |val| val.upcase }
+
+      expect(@result).to be_a Success
+      expect(@result.get).to eq @value.upcase
+    end
+  end
 end

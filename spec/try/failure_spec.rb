@@ -24,4 +24,13 @@ describe Failure do
       expect(@failure.is_success?).to be false
     end
   end
+
+  describe "map" do
+    it "returns a Failure containing the same wrapped error" do
+      @result = @failure.map { |val| val.upcase }
+
+      expect(@result).to be_a Failure
+      expect{ @result.get}.to raise_error Exception
+    end
+  end
 end

@@ -14,4 +14,8 @@ class Success
   def is_success?
     true
   end
+
+  def map
+    Success.new(yield(@value))
+  end
 end

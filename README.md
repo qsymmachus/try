@@ -58,7 +58,9 @@ Once you have your result, it shares a common interface regardless of whether it
 # => returns true if it's a Success
 # => returns false if it's a Failure
 
-# More methods to come, like 'map'...
+@result.map { |result| result.optimize }
+# => returns a Success wrapping the "optimized" result if it's a Success
+# => returns a Failure wrapping the original error if it's a Failure
 ```
 
 ## Development

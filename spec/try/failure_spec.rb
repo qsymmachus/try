@@ -32,5 +32,12 @@ describe Failure do
       expect(@result).to be_a Failure
       expect{ @result.get}.to raise_error Exception
     end
+
+    it "does not nest Failures if the method is chained" do
+      @result =  @failure.map { |val| val.upcase }.map { |val| val.reverse }
+
+      expect(@result).to be_a Failure
+      expect{ @result.get}.to raise_error Exception
+    end
   end
 end

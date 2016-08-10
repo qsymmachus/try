@@ -32,5 +32,13 @@ describe Success do
       expect(@result).to be_a Success
       expect(@result.get).to eq @value.upcase
     end
+
+    it "does not nest Successes if the method is chained" do
+      @result =  @success.map { |val| val.upcase }.map { |val| val.reverse }
+
+      expect(@result).to be_a Success
+      expect(@result.get).to_not be_a Success
+      expect(@result.get).to eq @value.upcase.reverse
+    end
   end
 end
